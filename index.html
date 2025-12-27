@@ -663,19 +663,63 @@
 
     // --- UTILS ---
     function showAutoAds() {
-        // Ads logic for Top and Middle
-        const adContent = `
-            <div class="w-full h-full bg-gradient-to-r from-purple-900 to-indigo-900 flex items-center justify-center text-center p-2 cursor-pointer" onclick="window.open('https://google.com', '_blank')">
-                <div>
-                    <p class="text-[10px] text-yellow-400 font-bold uppercase">Sponsored</p>
-                    <h3 class="text-sm font-bold text-white">Earn Money Online!</h3>
-                    <button class="bg-white text-black text-[8px] px-2 py-1 mt-1 rounded font-bold">CLICK HERE</button>
-                </div>
-            </div>
-        `;
-        document.getElementById('top-ad-container').innerHTML = adContent;
-        // Inject same ad content in middle or different one
-        document.getElementById('middle-ad-container').innerHTML = adContent;
+        // ==========================================
+        // 🔗 ডাইরেক্ট লিংক সেটআপ (এখানে আপনার লিংক দিন)
+        // ==========================================
+
+        // ১. উপরের লিংক (Top Ad)
+        const topDirectLink = "https://www.your-monetag-link-here.com"; 
+
+        // ২. মাঝখানের লিংক (Middle Ad)
+        const midDirectLink = "https://www.your-adsterra-link-here.com"; 
+
+        // ৩. নিচের লিংক (Bottom Ad)
+        const botDirectLink = "https://www.another-link-here.com";
+
+
+        // ==========================================
+        // 🎨 অটো ব্যানার ডিজাইন (CSS দিয়ে তৈরি)
+        // ==========================================
+        
+        // 1. TOP AD (অ্যানিমেটেড ব্যানার)
+        if(document.getElementById('top-ad-container')) {
+            document.getElementById('top-ad-container').innerHTML = `
+                <a href="${topDirectLink}" target="_blank" class="w-full h-full flex flex-col items-center justify-center bg-gradient-to-r from-pink-600 to-purple-700 text-white rounded-xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-white/10 group-active:bg-white/20 transition"></div>
+                    <div class="z-10 text-center">
+                        <p class="text-[10px] font-bold text-yellow-300 uppercase mb-1 animate-pulse">Sponsored Offer</p>
+                        <h3 class="text-sm font-black uppercase tracking-wider">Claim Bonus Now 🎁</h3>
+                        <div class="mt-2 bg-white text-purple-700 text-[9px] font-bold py-1 px-3 rounded-full shadow-lg">CLICK HERE</div>
+                    </div>
+                </a>
+            `;
+        }
+
+        // 2. MIDDLE AD (সিম্পল নীল বাটন স্টাইল)
+        if(document.getElementById('middle-ad-container')) {
+            document.getElementById('middle-ad-container').innerHTML = `
+                <a href="${midDirectLink}" target="_blank" class="w-full h-full flex items-center justify-between px-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg text-white relative overflow-hidden">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-gem text-2xl text-yellow-400"></i>
+                        <div>
+                            <h4 class="text-xs font-bold uppercase">Free Premium</h4>
+                            <p class="text-[9px] text-blue-200">Tap to activate now!</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm animate-bounce"></i>
+                </a>
+            `;
+        }
+
+        // 3. BOTTOM AD (টেক্সট স্টাইল)
+        if(document.getElementById('bottom-ad-container')) {
+            document.getElementById('bottom-ad-container').innerHTML = `
+                <a href="${botDirectLink}" target="_blank" class="w-full h-full flex items-center justify-center bg-slate-800/50 rounded-lg border border-dashed border-slate-600 hover:bg-slate-800 transition">
+                    <span class="text-[10px] text-slate-400 font-bold mr-2">[AD]</span>
+                    <span class="text-xs font-bold text-blue-400 underline decoration-dotted">Best VPN Offer - Check Now</span>
+                </a>
+            `;
+        }
     }
 
     function copyText(id) {
